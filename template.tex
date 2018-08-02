@@ -1,0 +1,230 @@
+% Include the General Preamble:
+\makeatletter
+\def \input@path{{../../}}
+\makeatother
+% Initiate Document:
+\documentclass[11pt]{report}
+
+% Import all Packages:
+\usepackage[letterpaper]{geometry}
+\usepackage[table]{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{tocloft}
+\usepackage{palatino}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\usepackage{xassoccnt}
+\usepackage{sectsty}
+\usepackage{enumitem}
+\usepackage[explicit]{titlesec}
+\usepackage{tikz}
+\usetikzlibrary{shapes,shadows,calc}
+\usetikzlibrary{positioning,calc}
+\usepackage{lipsum}
+\usepackage[document]{ragged2e}
+\usepackage{indentfirst}
+\usepackage{placeins}
+\usepackage{xfrac}
+\usepackage{amsmath}
+\usepackage{cite}
+\usepackage{pdflscape}
+\usepackage{longtable}
+\usepackage{tocloft}
+\usepackage{standalone}
+\usepackage{etoc}
+\usepackage{etoolbox}
+\usepackage[mmddyyyy,hhmmss]{datetime}
+\usepackage{booktabs}
+\usepackage{parskip}
+
+% Pandoc Stuff
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Page Setup:
+\setmarginsrb{2 cm}{2.5 cm}{2.5 cm}{2 cm}{0 cm}{0 cm}{1 cm}{2 cm}
+% \setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{0 cm}{0 cm}{1cm}{2 cm}
+\setlength{\cftbeforetoctitleskip}{-3em}
+
+% Define Graphics Path:
+\graphicspath{{Images/Logos/}}
+
+% Define Section Counters:
+\setcounter{section}{0}
+\setcounter{subsection}{0}
+\setcounter{subsubsection}{0}
+\setcounter{tocdepth}{1}
+\tocloftpagestyle{General}
+\def\numberline#1{}
+
+\renewcommand{\thesection}{\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+
+% Define Hyperlinks:
+\hypersetup{pdfborder={0 0 0}, colorlinks=true, urlcolor=blue}
+\hypersetup{%
+   citecolor=blue
+}
+
+% Setup Titles:
+\titlespacing*{\section}{0pt}{10pt}{-15pt}
+% \titlespacing*{\subsection}{12pt}{10pt}{-15pt}
+\titlespacing*{\subsection}{0pt}{10pt}{-15pt}
+
+\let\Oldsection\section
+\renewcommand{\section}{\FloatBarrier\Oldsection}
+
+\let\Oldsubsection\subsection
+\renewcommand{\subsection}{\FloatBarrier\Oldsubsection}
+
+\let\Oldsubsubsection\subsubsection
+\renewcommand{\subsubsection}{\FloatBarrier\Oldsubsubsection}
+
+% Chapter Title Settings:
+\chapterfont{\centering}
+
+\makeatletter
+\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+\makeatother
+
+% Design for Tables:
+\setlength{\arrayrulewidth}{.5mm}
+\setlength{\tabcolsep}{.5mm}
+\renewcommand{\arraystretch}{2.5}
+
+% Custom Color Definitions:
+\definecolor{UBblue}{HTML}{0057C8}
+\definecolor{LFRgreen}{HTML}{52AE41}
+\definecolor{LFRgray}{HTML}{6C757D}
+
+% Custom Section Designs:
+\newcommand\SecTitle[4]{%
+\begin{tikzpicture}
+    \node (A) [rectangle,
+               minimum width=\textwidth,
+               minimum height = 0.8 cm,
+               color=white,
+               fill=LFRgray,
+               draw=LFRgray,
+               line width = .65mm,
+               text width=\textwidth-3cm, align=left]
+               {\hspace{1.5cm}\parbox{\textwidth}{\Large\textbf{\textsf{#4}}}};
+
+        \fill[fill=LFRgreen] (A.north west) -- ($$(A.north west)+(2cm,0)$$) -- ($$0.5*(A.north west)-0.5*(A.north west)-(0.5*\textwidth-2.5cm,0)$$)--($$(A.south west)+(2cm,0)$$)--(A.south west);
+
+        \node [color=white](A.north west) at ($$0.5*(A.north west)-0.5*(A.north west)-(0.5*\textwidth-1cm,0)$$) {\LARGE    \textbf{\textsf{\thesection}}};
+\end{tikzpicture}
+}
+\titleformat{\section}
+{\normalfont}{}{0em}
+{\SecTitle{east}{west}{0\paperwidth}{#1}}
+
+
+% Custom SubSection Designs:
+\newcommand\SubSecTitle[4]{%
+\begin{tikzpicture}
+    \node (A) [rectangle,
+               minimum width=\textwidth,
+               minimum height=.5cm,
+               color=white,
+               fill=LFRgray,
+               draw=LFRgray,
+               line width = .65mm,
+               text width=\textwidth-3cm, align=left]
+               {\hspace{1.5cm}\parbox{\textwidth}{\large\textbf{\textsf{#4}}}};
+
+        \fill[fill=LFRgreen] (A.north west) -- ($$(A.north west)+(2cm,0)$$) -- ($$0.5*(A.north west)-0.5*(A.north west)-(0.5*\textwidth-2.5cm,0)$$)--($$(A.south west)+(2cm,0)$$)--(A.south west);
+
+        \node [color=white](A.north west) at ($$0.5*(A.north west)-0.5*(A.north west)-(0.5*\textwidth-1cm,0)$$) {\Large    \textbf{\textsf{\thesubsection}}};
+\end{tikzpicture}
+}
+\titleformat{\subsection}
+{\normalfont}{}{0em}
+{\SubSecTitle{east}{west}{0\paperwidth}{#1}}
+
+
+% Page Style for Title Pages:
+\fancypagestyle{TitlePages}{
+\fancyhf{}
+\renewcommand{\headrulewidth}{1pt}
+\fancyhead[L]{\includegraphics[height=1.5 cm]{images/UBNL.png} \\ }
+\fancyhead[R]{\includegraphics[height=2.5 cm]{images/LinkSat.png} \\ }
+}
+
+% Page Style for General Pages:
+\fancypagestyle{General}{
+\fancyhf{}
+\raggedright
+% \setlength{\parindent}{1cm}
+% \setlength{\parskip}{.25cm}
+
+\renewcommand{\footrulewidth}{.5pt}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\headheight}{0pt}
+% \fancyfoot[L]{\includegraphics[width=1.5 cm]{LinkSat.png}}
+% \fancyfoot[R]{\includegraphics[width=2.5 cm]{UBNL.png}}
+\fancyfoot[L]{ Last Updated: \thedate }
+\fancyfoot[R]{ \thepage }
+
+% \fancyhead[R]{{\bfseries \Subsystem} \\ \documentTitle \\ \thedate}
+% \fancyhead[L]{\includegraphics[width=5cm]{UBEAS.png}  }
+
+}
+
+% Important Titles Variables:
+\author{$author$}
+\title{$title$}
+\date{\today}
+
+% Document "Variables":
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+%   END PREAMBLE ---------------------------------------------------------------
+% ==============================================================================
+
+% \graphicspath{{images}}
+
+% Define Documentation Specifics:
+\def \currentrevision{$if(revision)$$revision$$else$ - $endif$}
+
+% Initialize Document:
+\begin{document}
+
+\pagestyle{TitlePages}
+
+\begin{center}
+    {\LARGE \thetitle}
+
+    \vspace{0.3cm}
+
+    {\Large ~Rev.~\currentrevision}
+
+    \vspace{1cm}
+\end{center}
+% \addtocontents{toc}{\setcounter{tocdepth}{1}}
+%     \addcontentsline{toc}{section}{\documentnumber \ \ \textbar \ \ \documentTitle}
+% \addtocontents{toc}{\setcounter{tocdepth}{0}}
+
+\vspace{6cm}
+
+\includegraphics[width=\textwidth]{images/radio.png}
+
+\newpage
+
+\pagestyle{General}
+% =============================================================================
+% =========== %
+% DOCUMENT BODY %
+% =========== %
+
+$body$
+
+% =============================================================================
+
+% End Document:
+\end{document}
