@@ -6,7 +6,7 @@ PFLAGS=-M "title=Little Free Radio Datasheet" -M "author=Grant Iraci" -M revisio
 PDFLATEX=pdflatex
 TFLAGS=
 
-SECTIONS=overview.rst ratings.rst connectors.rst interfacing.rst
+SECTIONS=overview.rst ratings.rst connectors.rst interfacing.rst drawing.rst
 
 all: pdf
 
