@@ -15,6 +15,8 @@ datasheet.tex: $(SECTIONS) ../template.tex
 
 datasheet.pdf: datasheet.tex
 	$(PDFLATEX) $(TFLAGS) $^
+	# Run twice to generate updated TOC
+	$(PDFLATEX) $(TFLAGS) $^
 
 pdf: datasheet.pdf
 
