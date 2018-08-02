@@ -1,10 +1,3 @@
-Little Free Radio Datasheet
-################################
-
-
-
-.
-
 Overview
 ====================
 
