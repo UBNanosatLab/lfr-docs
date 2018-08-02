@@ -10,8 +10,8 @@ SECTIONS=overview.rst ratings.rst connectors.rst interfacing.rst
 
 all: pdf
 
-datasheet.tex: $(SECTIONS)
-	$(PANDOC) --template ../template.tex -o $@ $(PFLAGS) $^
+datasheet.tex: $(SECTIONS) ../template.tex
+	$(PANDOC) --template ../template.tex -o $@ $(PFLAGS) $(SECTIONS)
 
 datasheet.pdf: datasheet.tex
 	$(PDFLATEX) $(TFLAGS) $^

@@ -8,8 +8,6 @@
 % Import all Packages:
 \usepackage[letterpaper]{geometry}
 \usepackage[table]{xcolor}
-\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
-\usepackage{tocloft}
 \usepackage{palatino}
 \usepackage{graphicx}
 \usepackage{fancyhdr}
@@ -37,6 +35,15 @@
 \usepackage[mmddyyyy,hhmmss]{datetime}
 \usepackage{booktabs}
 \usepackage{parskip}
+\usepackage[nottoc]{tocbibind}
+\usepackage{setspace}
+
+% Custom Color Definitions:
+\definecolor{UBblue}{HTML}{0057C8}
+\definecolor{LFRgreen}{HTML}{52AE41}
+\definecolor{LFRgray}{HTML}{6C757D}
+
+\usepackage[colorlinks=true,linkcolor=LFRgreen]{hyperref}
 
 % Pandoc Stuff
 \providecommand{\tightlist}{%
@@ -54,7 +61,7 @@
 \setcounter{section}{0}
 \setcounter{subsection}{0}
 \setcounter{subsubsection}{0}
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 \tocloftpagestyle{General}
 \def\numberline#1{}
 
@@ -62,9 +69,9 @@
 \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
 
 % Define Hyperlinks:
-\hypersetup{pdfborder={0 0 0}, colorlinks=true, urlcolor=blue}
+\hypersetup{pdfborder={0 0 0}, colorlinks=true, urlcolor=LFRgreen}
 \hypersetup{%
-   citecolor=blue
+   citecolor=LFRgreen
 }
 
 % Setup Titles:
@@ -92,11 +99,6 @@
 \setlength{\arrayrulewidth}{.5mm}
 \setlength{\tabcolsep}{.5mm}
 \renewcommand{\arraystretch}{2.5}
-
-% Custom Color Definitions:
-\definecolor{UBblue}{HTML}{0057C8}
-\definecolor{LFRgreen}{HTML}{52AE41}
-\definecolor{LFRgray}{HTML}{6C757D}
 
 % Custom Section Designs:
 \newcommand\SecTitle[4]{%
@@ -184,6 +186,8 @@
 \let\thedate\@date
 \makeatother
 
+\renewcommand{\cftsecfont}{\bfseries}
+
 %   END PREAMBLE ---------------------------------------------------------------
 % ==============================================================================
 
@@ -217,6 +221,13 @@
 \newpage
 
 \pagestyle{General}
+
+\doublespacing
+\tableofcontents
+\singlespacing
+
+\newpage
+
 % =============================================================================
 % =========== %
 % DOCUMENT BODY %
