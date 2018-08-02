@@ -14,7 +14,7 @@ connector mounted parallel to the board.
 
 J2 - Main Header Connector
 ----------------------------------------
-J2 is a female low profile 100 mil (2.54 mm) header that can be mated to from either the
+J2 is a female low profile 2 mm header that can be mated to from either the
 top or the bottom.
 
 
