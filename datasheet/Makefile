@@ -1,4 +1,4 @@
-REV=$(shell git describe --dirty --always)
+REV=$(shell git describe --tags --dirty --always)
 
 PANDOC=pandoc
 PFLAGS=-M "title=Little Free Radio Datasheet" -M "author=Grant Iraci" -M revision=$(REV)
