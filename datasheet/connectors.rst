@@ -17,10 +17,6 @@ J2 - Main Header Connector
 J2 is a female low profile 2 mm header that can be mated to from either the
 top or the bottom.
 
-
-Caution: J2 can easily be damaged by attempted mating to misalgined header pins from
-the top. Use caution when mating.
-
 +-----+------------------+------------------+-----+
 | Pin | Description      | Description      | Pin |
 +=====+==================+==================+=====+
@@ -36,7 +32,7 @@ the top. Use caution when mating.
 +-----+------------------+------------------+-----+
 | 9   | MSP430 SBWTCK    | MSP430 SBWTDIO   | 10  |
 +-----+------------------+------------------+-----+
-| 7   | MSP430 GPIO P4.0 | MSP430 GPIO P4.1 | 8   |
+| 7   | MSP430 GPIO P2.3 | MSP430 GPIO P2.4 | 8   |
 +-----+------------------+------------------+-----+
 | 5   | TX Inhibit       | TX Active        | 6   |
 +-----+------------------+------------------+-----+
@@ -68,5 +64,9 @@ designed to mate with pogo pins.
 +---+-------------------------------------+
 | 7 | PA DAC I:sup:`2`C SCL               |
 +---+-------------------------------------+
-| 8 | PA DAC I:sup:`2`C SDA               |
+| 8 | PA V:sub:`dd` (divided)             |
++---+-------------------------------------+
+| 9 | PA I:sub:`mon` output               |
++---+-------------------------------------+
+| 10| PA PGOOD output                     |
 +---+-------------------------------------+
