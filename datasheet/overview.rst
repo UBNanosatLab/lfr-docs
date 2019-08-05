@@ -33,14 +33,16 @@ Features
 - High efficiency PA: > 65% from under 1W to over 3W\*\*
 - Open source hardware, firmware, and example SDR ground station
 - RF Protocol Support:
-  + Low-overhead custom framing with CRC-16
-  + `CCSDS 133.0-B-1 <https://public.ccsds.org/Pubs/133x0b1c2.pdf>`_\*
+  - Low-overhead custom framing with CRC-16
+  - `CCSDS 133.0-B-1 <https://public.ccsds.org/Pubs/133x0b1c2.pdf>`_\*
+
 - 3.3V logic supply and unregulated 5 to 20V VBATT supply
 - Low RX power consumption: < 25 mA @ 3.3 V
 - Multiple interface options:
-  + UART (9600 / 38400 / 115200 baud)
-  + I:sup:`2`C slave\*
-  + SPI slave\*
+  - UART (9600 / 38400 / 115200 baud)
+  - I:sup:`2`C slave\*
+  - SPI slave\*
+
 - RF parameters reconfigurable in orbit (within band)\*
 - Half duplex with single antenna
 - SMA antenna connector
