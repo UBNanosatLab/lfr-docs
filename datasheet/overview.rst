@@ -4,7 +4,7 @@ Overview
 Little Free Radio (LFR) is open source, command, telemetry, and data radio,
 geared at CubeSats, high altitude balloons, and other applications requiring a
 small, power efficient, medium-speed communications link. The design is built
-around inexpensive commercially availible components.
+around inexpensive commercially available components.
 
 The low power integrated processor, the Texas Instruments
 `MSP430FR5994<http://www.ti.com/product/msp430fr5994>`_, manages interfacing
