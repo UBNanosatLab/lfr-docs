@@ -1,0 +1,26 @@
+\documentclass[preview]{standalone}
+
+\usepackage{bytefield}
+\usepackage{color}
+
+\begin{document}
+
+    \newcommand{\colorbitbox}[3]{%
+        \sbox0{\bitbox{#2}{#3}}%
+        \makebox[0pt][l]{\textcolor{#1}{\rule[-\dp0]{\wd0}{\ht0}}}%
+        \bitbox{#2}{#3}%
+    }
+
+    \definecolor{lightgray}{gray}{0.9}
+
+    \begin{bytefield}{64}
+        \colorbitbox{lightgray}{8}{SYNC H} & 
+        \colorbitbox{lightgray}{8}{SYNC L} & 
+        \bitbox{8}{CMD} & \bitbox{8}{LEN} & 
+        \bitbox{8}{DATA[0]} &
+        \bitbox{8}{$\cdots$} &
+        \bitbox{8}{DATA[N-1]} &
+        \colorbitbox{lightgray}{8}{CHK A} &
+        \colorbitbox{lightgray}{8}{CHK B}
+    \end{bytefield}
+\end{document}

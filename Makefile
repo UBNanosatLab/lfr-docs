@@ -1,4 +1,4 @@
-SUBDIRS = datasheet
+SUBDIRS = datasheet users_guide
 
 all:
 	for dir in $(SUBDIRS); do \
