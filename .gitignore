@@ -5,3 +5,5 @@
 *.out
 */*.tex
 *.toc
+.vscode
+.DS_Store
