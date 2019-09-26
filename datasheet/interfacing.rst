@@ -7,7 +7,7 @@ ended with a checksum to ensure data integrity even in the case of bus errors.
 Commands to the radio are acknowledged with a reply indicating successful
 execution of a command or an error condition with error code indicating the
 source of the error. Received packets and resets result in spontaneous replies
-being sent over the serial connection. These do not reqiure acknowledgement from
+being sent over the serial connection. These do not require acknowledgement from
 the flight computer.
 
 LFR is capable of buffering packets internally. Commanding LFR to transmit adds

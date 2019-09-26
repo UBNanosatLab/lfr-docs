@@ -4,7 +4,7 @@ Connectors and Pinout
 .. image:: images/radio_connectors.png
    :alt: Connector diagram
    :width: 512px
-   :height: 293px
+   :height: 358px
 
 J1 - ANT SMA Connector
 ----------------------------------------
@@ -14,12 +14,9 @@ connector mounted parallel to the board.
 
 J2 - Main Header Connector
 ----------------------------------------
-J2 is a female low profile 2 mm header that can be mated to from either the
-top or the bottom.
-
-
-Caution: J2 can easily be damaged by attempted mating to misalgined header pins from
-the top. Use caution when mating.
+J2 is a female low profile 2 mm header (Sullins NPPN102GFNP-RC) that can be mated to
+from either the top or the bottom.  Compatible mating connectors depend on how
+LFR is mounted; Samtec MTMM-110-07-G-D-290 works for a good range of configurations.
 
 +-----+------------------+------------------+-----+
 | Pin | Description      | Description      | Pin |
@@ -36,7 +33,7 @@ the top. Use caution when mating.
 +-----+------------------+------------------+-----+
 | 9   | MSP430 SBWTCK    | MSP430 SBWTDIO   | 10  |
 +-----+------------------+------------------+-----+
-| 7   | MSP430 GPIO P4.0 | MSP430 GPIO P4.1 | 8   |
+| 7   | MSP430 GPIO P2.3 | MSP430 GPIO P2.4 | 8   |
 +-----+------------------+------------------+-----+
 | 5   | TX Inhibit       | TX Active        | 6   |
 +-----+------------------+------------------+-----+
@@ -47,7 +44,7 @@ the top. Use caution when mating.
 
 TPx - Test Points
 ---------------------------------------
-The board also features 8 test points that can be used to debug communications
+The board also features test points that can be used to debug communications
 between the MCU and RFIC. They are aligned to a 100 mil (2.54 mm) grid and are
 designed to mate with pogo pins.
 
@@ -66,7 +63,11 @@ designed to mate with pogo pins.
 +---+-------------------------------------+
 | 6 | Si4464 Shutdown                     |
 +---+-------------------------------------+
-| 7 | PA DAC I:sup:`2`C SCL               |
+| 7 | PA/TCXO DAC I:sup:`2`C SCL          |
 +---+-------------------------------------+
-| 8 | PA DAC I:sup:`2`C SDA               |
+| 8 | PA V:sub:`dd` (divided)             |
++---+-------------------------------------+
+| 9 | PA I:sub:`mon` output               |
++---+-------------------------------------+
+| 10| PA V:sub:`dd` PGOOD output          |
 +---+-------------------------------------+
